@@ -10,12 +10,14 @@ namespace Code.PlayerModule.Installer
             PlayerCreateSystem playerCreateSystem,
             PlayerInputSystem playerInputSystem,
             PlayerMoveSystem playerMoveSystem,
-            PlayerJumpSystem playerJumpSystem) : base(world)
+            PlayerJumpSystem playerJumpSystem,
+            PlayerDamageSystem playerDamageSystem) : base(world)
         {
             _initializersSystems.AddInitializer(playerCreateSystem);
             _updateSystems.AddSystem(playerInputSystem);
             _updateSystems.AddSystem(playerMoveSystem);
             _updateSystems.AddSystem(playerJumpSystem);
+            _updateSystems.AddSystem(playerDamageSystem);
         }
     }
 }

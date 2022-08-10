@@ -14,6 +14,7 @@ namespace Code.PlayerModule.Installer
             Container.Bind<PlayerInputSystem>().AsSingle();
             Container.Bind<PlayerMoveSystem>().AsSingle();
             Container.Bind<PlayerJumpSystem>().AsSingle();
+            Container.Bind<PlayerDamageSystem>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<PlayerExecutor>().AsSingle();
         }
