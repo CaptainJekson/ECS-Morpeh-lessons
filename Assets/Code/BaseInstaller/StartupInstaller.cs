@@ -1,6 +1,7 @@
 ﻿using Code.CollisionModule.Installer;
 using Code.EnemyModule.Installer;
 using Code.PlayerModule.Installer;
+using Code.UIModule.Installer;
 using Morpeh;
 using Zenject;
 
@@ -14,6 +15,7 @@ namespace Code.BaseInstaller
             CollisionInstaller.Install(Container);
             PlayerInstaller.Install(Container);
             EnemyInstaller.Install(Container);
+            UiInstaller.Install(Container);
 
             Container.BindInstance(world);
         }

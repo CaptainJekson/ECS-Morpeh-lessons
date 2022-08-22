@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Morpeh;
 using UnityEngine.UI;
 
-namespace Code.UI.Utility
+namespace Code.UIModule.Utility
 {
     public static class UiExtension
     {

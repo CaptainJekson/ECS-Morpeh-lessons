@@ -35,6 +35,7 @@ namespace Code.PlayerModule.Systems
                 {
                     playerComponent.life--;
                     Debug.Log(playerComponent.life);
+                    playerEntity.SetComponent(new DamageComponent());
                 }
                 else
                 {

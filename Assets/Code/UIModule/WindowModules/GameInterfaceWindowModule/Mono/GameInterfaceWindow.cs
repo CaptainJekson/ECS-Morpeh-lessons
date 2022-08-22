@@ -1,10 +1,11 @@
-﻿using TMPro;
+﻿using Code.UIModule.Mono;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.Mono
+namespace Code.UIModule.WindowModules.GameInterfaceWindowModule.Mono
 {
-    public class GameInterfaceWindow : MonoBehaviour
+    public class GameInterfaceWindow : Window
     {
         public Image healthBar;
         public TextMeshProUGUI healthText;
