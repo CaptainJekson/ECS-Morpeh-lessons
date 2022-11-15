@@ -1,7 +1,6 @@
-﻿using Code.CollisionModule.Installer;
-using Code.EnemyModule.Installer;
-using Code.PlayerModule.Installer;
-using Code.UIModule.Installer;
+﻿using Code.TestModule.Installer;
+using Code.TestModule2.Installer;
+using Code.TestModule3.Installer;
 using Morpeh;
 using Zenject;
 
@@ -12,10 +11,12 @@ namespace Code.BaseInstaller
         public override void InstallBindings()
         {
             var world = World.Default;
-            CollisionInstaller.Install(Container);
-            PlayerInstaller.Install(Container);
-            EnemyInstaller.Install(Container);
-            UiInstaller.Install(Container);
+
+            var index = 0;
+            
+            TestInstaller.Install(Container, world, index++);
+            TestInstaller2.Install(Container,world, index++);
+            TestInstaller3.Install(Container,world, index);
 
             Container.BindInstance(world);
         }
