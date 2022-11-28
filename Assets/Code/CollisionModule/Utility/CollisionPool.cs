@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
 using Code.CollisionModule.Components;
 using Morpeh;
+using Zenject;
 
 namespace Code.CollisionModule.Utility
 {
     public class CollisionPool
     {
-        private World _world;
+        //private World _world;  
         private Stack<Entity> _pool;
-
-        public CollisionPool(World world)
-        {
-            _world = world;
-            _pool = new Stack<Entity>();
-        }
 
         public Entity GetCollisionEntity()
         {
@@ -35,9 +30,9 @@ namespace Code.CollisionModule.Utility
 
         private Entity GenerateNewEntity()
         {
-            var entity = _world.CreateEntity();
-            entity.AddComponent<CollisionComponent>();
-            return entity;
+            //var entity = _world.CreateEntity();
+            //entity.AddComponent<CollisionComponent>();
+            return default;
         }
     }
 }

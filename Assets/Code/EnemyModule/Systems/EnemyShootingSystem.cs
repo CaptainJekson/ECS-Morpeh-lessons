@@ -3,19 +3,16 @@ using Code.CollisionModule.Utility;
 using Code.EnemyModule.Components;
 using Morpeh;
 using UnityEngine;
+using Zenject;
 
 namespace Code.EnemyModule.Systems
 {
     public class EnemyShootingSystem : ISystem
     {
-        private Filter _filter;
-        private CollisionPool _collisionPool;
-
-        public EnemyShootingSystem(CollisionPool collisionPool)
-        {
-            _collisionPool = collisionPool;
-        }
+        [Inject] private CollisionPool _collisionPool;
         
+        private Filter _filter;
+
         public World World { get; set; }
         
         public void OnAwake()

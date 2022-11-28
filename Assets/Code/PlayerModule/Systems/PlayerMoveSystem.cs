@@ -2,21 +2,18 @@ using Code.PlayerModule.Components;
 using Code.PlayerModule.Configs;
 using Morpeh;
 using UnityEngine;
+using Zenject;
 
 namespace Code.PlayerModule.Systems
 {
     public sealed class PlayerMoveSystem : ISystem
     {
+        [Inject] private PlayerConfig _playerConfig;
+        
         private Filter _filter;
-        private PlayerConfig _playerConfig;
         
         public World World { get; set; }
 
-        public PlayerMoveSystem(PlayerConfig playerConfig)
-        {
-            _playerConfig = playerConfig;
-        }
-        
         public void OnAwake()
         {
             _filter = World.Filter.With<PlayerComponent>().With<PlayerMoveComponent>();

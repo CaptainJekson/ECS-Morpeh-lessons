@@ -1,4 +1,5 @@
 ﻿using Code.BaseUtils;
+using Code.PlayerModule.Configs;
 using Code.TestModule.Systems;
 using Morpeh;
 using Zenject;
@@ -18,6 +19,8 @@ namespace Code.TestModule.Installer
         
         public override void InstallBindings()
         {
+            Container.Bind<PlayerConfig>().FromScriptableObjectResource("PlayerModule/PlayerConfig").AsSingle();
+            
             var systemsGroup = _world.CreateSystemsGroup();
 
             systemsGroup.AddSystem(Container.BindSystem<TestSystem>());

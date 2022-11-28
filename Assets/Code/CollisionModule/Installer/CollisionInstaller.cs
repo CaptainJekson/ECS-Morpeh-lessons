@@ -1,18 +1,31 @@
+using Code.BaseUtils;
 using Code.CollisionModule.Systems;
 using Code.CollisionModule.Utility;
+using Morpeh;
 using Zenject;
 
 namespace Code.CollisionModule.Installer
 {
-    public class CollisionInstaller : Installer<CollisionInstaller>
+    public class CollisionInstaller : Installer<World, int, CollisionInstaller>
     {
+        private World _world;
+        private int _index;
+
+        public CollisionInstaller(World world, int index)
+        {
+            _world = world;
+            _index = index;
+        }
+        
         public override void InstallBindings()
         {
-            Container.Bind<CollisionPool>().AsSingle();
-
-            Container.Bind<CollisionCleanupSystem>().AsSingle();
+            var systemsGroup = _world.CreateSystemsGroup();
             
-            Container.BindInterfacesAndSelfTo<CollisionExecutor>().AsSingle();
+            Container.Bind<CollisionPool>().AsSingle();
+            
+            systemsGroup.AddSystem(Container.BindSystem<CollisionCleanupSystem>());
+            
+            _world.AddSystemsGroup(_index, systemsGroup);
         }
     }
 }

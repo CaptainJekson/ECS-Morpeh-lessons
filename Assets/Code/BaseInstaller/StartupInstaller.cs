@@ -1,6 +1,5 @@
-﻿using Code.TestModule.Installer;
-using Code.TestModule2.Installer;
-using Code.TestModule3.Installer;
+﻿using Code.NetworkModule;
+using Code.PlayerModule.Installer;
 using Morpeh;
 using Zenject;
 
@@ -14,9 +13,16 @@ namespace Code.BaseInstaller
 
             var index = 0;
             
-            TestInstaller.Install(Container, world, index++);
-            TestInstaller2.Install(Container,world, index++);
-            TestInstaller3.Install(Container,world, index);
+            ServerInstaller.Install(Container, world, index);
+            
+            //CollisionInstaller.Install(Container, world, index++);
+            //PlayerInstaller.Install(Container, world, index++);
+            //EnemyInstaller.Install(Container, world, index++);
+            //UiInstaller.Install(Container, world, index++);
+            
+            //TestInstaller.Install(Container, world, index++);
+            //TestInstaller2.Install(Container,world, index++);
+            //TestInstaller3.Install(Container,world, index);
 
             Container.BindInstance(world);
         }

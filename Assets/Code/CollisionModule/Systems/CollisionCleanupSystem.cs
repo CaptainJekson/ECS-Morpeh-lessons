@@ -1,21 +1,18 @@
 ﻿using Code.CollisionModule.Components;
 using Code.CollisionModule.Utility;
 using Morpeh;
+using Zenject;
 
 namespace Code.CollisionModule.Systems
 {
     public class CollisionCleanupSystem : ILateSystem
     {
+        [Inject] private CollisionPool _collisionPool;
+        
         private Filter _filter;
-        private CollisionPool _collisionPool;
         
         public World World { get; set; }
 
-        public CollisionCleanupSystem(CollisionPool collisionPool)
-        {
-            _collisionPool = collisionPool;
-        }
-       
         public void OnAwake()
         {
             _filter = World.Filter.With<CollisionInfoComponent>();
